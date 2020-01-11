@@ -88,7 +88,7 @@
 								<button type="submit" class="btn btn-primary">Login</button>
 							</div>
 							<div class="clearfix"></div>
-						}
+						
 					</form>
 					<hr>
 					<h3>Forgot Password?</h3>

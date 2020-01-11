@@ -2973,3 +2973,9 @@ ul.messagesList li span.date {
 	}
     
 }
+.f11{
+    font-size: 11px !important;
+}
+.mw-350{
+	max-width: 350px !important;
+}
