@@ -339,7 +339,7 @@
 							<a class="dropmenu" href="#"><i class="icon-folder-close-alt"></i><span class="hidden-tablet"> Products</span><span class="label label-important"> 3 </span></a>
 							<ul>
 								<li><a class="submenu" href="{{URL::to('/add-product')}}"><i class="icon-file-alt"></i><span class="hidden-tablet"> Add Product</span></a></li>
-								<li><a class="submenu" href="submenu2.html"><i class="icon-file-alt"></i><span class="hidden-tablet"> All Products</span></a></li>
+								<li><a class="submenu" href="{{URL::to('/all-product')}}"><i class="icon-file-alt"></i><span class="hidden-tablet"> All Products</span></a></li>
 								
 							</ul>	
 						</li>
@@ -348,7 +348,14 @@
 						<li><a href="{{URL::to('/all-manufacture')}}"><i class="icon-eye-open"></i><span class="hidden-tablet"> All Manufacture</span></a></li>
 						<li><a href="{{URL::to('/add-manufacture')}}"><i class="icon-dashboard"></i><span class="hidden-tablet"> Add Manufacture</span></a></li>
 						
-						<li><a href="form.html"><i class="icon-edit"></i><span class="hidden-tablet"> Slider</span></a></li>
+						<li>
+							<a class="dropmenu" href="#"><i class="icon-edit"></i><span class="hidden-tablet"> Slider</span><span class="label label-important"></span></a>
+							<ul>
+								<li><a class="submenu" href="{{URL::to('/add-slider')}}"><i class="icon-file-alt"></i><span class="hidden-tablet"> Add Slider</span></a></li>
+								<li><a class="submenu" href="{{URL::to('/all-slider')}}"><i class="icon-file-alt"></i><span class="hidden-tablet"> All Slider</span></a></li>
+								
+							</ul>	
+						</li>
 						<li><a href="chart.html"><i class="icon-list-alt"></i><span class="hidden-tablet"> Social links</span></a></li>
 						<li><a href="typography.html"><i class="icon-font"></i><span class="hidden-tablet"> Business Name</span></a></li>
 						<li><a href="gallery.html"><i class="icon-picture"></i><span class="hidden-tablet"> Delivery Man</span></a></li>
@@ -394,7 +401,7 @@
 	<footer>
 
 		<p>
-			<span style="text-align:left;float:left">&copy; 2013 <a href="http://jiji262.github.io/Bootstrap_Metro_Dashboard/" alt="Bootstrap_Metro_Dashboard">Bootstrap Metro Dashboard</a></span>
+			<span style="text-align:left;float:left">&copy; <?php echo date('Y'); ?> Dewan Imtiaz Been Emran</span>
 			
 		</p>
 

@@ -2975,7 +2975,14 @@ ul.messagesList li span.date {
 }
 .f11{
     font-size: 11px !important;
+    border-radius: 5px !important;
 }
 .mw-350{
 	max-width: 350px !important;
+}
+.text-center1{
+	text-align: center !important;
+}
+.text-center1 a{
+	margin-bottom: 10px;
 }

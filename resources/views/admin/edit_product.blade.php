@@ -36,7 +36,7 @@
 			<div class="row-fluid sortable">
 				<div class="box span12">
 					<div class="box-header" data-original-title>
-						<h2><i class="halflings-icon edit"></i><span class="break"></span>Add product</h2>
+						<h2><i class="halflings-icon edit"></i><span class="break"></span>Edit product</h2>
 						<div class="box-icon">
 							<a href="#" class="btn-setting"><i class="halflings-icon wrench"></i></a>
 							<a href="#" class="btn-minimize"><i class="halflings-icon chevron-up"></i></a>
@@ -44,14 +44,14 @@
 						</div>
 					</div>
 					<div class="box-content">
-						<form class="form-horizontal" method="post" action="{{url('/save-product')}}" enctype="multipart/form-data">
+						<form class="form-horizontal" method="post" action="{{url('/update_product',$product_info->product_id)}}" enctype="multipart/form-data">
 							{{ csrf_field() }}
 						  <fieldset>
 							
 							<div class="control-group">
 							  <label class="control-label" for="date01">product Name</label>
 							  <div class="controls">
-								<input type="text" class="input-xlarge" name="product_name">
+								<input type="text" class="input-xlarge" name="product_name" value="{{$product_info->product_name}}">
 							  </div>
 							</div>
 							 <div class="control-group">
@@ -93,37 +93,38 @@
 							<div class="control-group hidden-phone">
 							  <label class="control-label" for="textarea2">product short Description</label>
 							  <div class="controls">
-								<textarea class="" name="product_short_description" rows="3"></textarea>
+								<textarea class="" name="product_short_description" rows="3">{{$product_info->product_short_description}}</textarea>
 							  </div>
 							</div>
 							<div class="control-group hidden-phone">
 							  <label class="control-label" for="textarea2">product long Description</label>
 							  <div class="controls">
-								<textarea class="" name="product_long_description" rows="3"></textarea>
+								<textarea class="" name="product_long_description" rows="3">{{$product_info->product_long_description}}</textarea>
 							  </div>
 							</div>
 							<div class="control-group hidden-phone">
 							  <label class="control-label" for="textarea2">product price</label>
 							  <div class="controls">
-								<textarea class="" name="product_price" rows="3"></textarea>
+								<textarea class="" name="product_price" rows="3">{{$product_info->product_price}}</textarea>
 							  </div>
 							</div>
 							<div class="control-group">
 							  <label class="control-label" for="fileInput">Product Image</label>
 							  <div class="controls">
+							  	<!-- <img src="{{$product_info->product_image}}" alt="image" style="width:80px;height:80px;"> -->
 								<input class="input-file uniform_on" name="product_image" id="fileInput" type="file">
 							  </div>
 							</div> 
 							<div class="control-group hidden-phone">
 							  <label class="control-label" for="textarea2">product size</label>
 							  <div class="controls">
-								<textarea class="" name="product_size" rows="3"></textarea>
+								<textarea class="" name="product_size" rows="3">{{$product_info->product_size}}</textarea>
 							  </div>
 							</div>
 							<div class="control-group hidden-phone">
 							  <label class="control-label" for="textarea2">product color</label>
 							  <div class="controls">
-								<textarea class="" name="product_color" rows="3"></textarea>
+								<textarea class="" name="product_color" rows="3">{{$product_info->product_color}}</textarea>
 							  </div>
 							</div>
 							<div class="control-group hidden-phone">
@@ -133,7 +134,7 @@
 							  </div>
 							</div>
 							<div class="form-actions">
-							  <button type="submit" class="btn btn-primary">Add product</button>
+							  <button type="submit" class="btn btn-primary">Update product</button>
 							  <button type="reset" class="btn">Cancel</button>
 							</div>
 						  </fieldset>
