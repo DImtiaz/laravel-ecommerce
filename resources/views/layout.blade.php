@@ -12,6 +12,8 @@
     <link href="{{asset('front/css/price-range.css')}}" rel="stylesheet">
     <link href="{{asset('front/css/animate.css')}}" rel="stylesheet">
     <link href="{{asset('front/css/main.css')}}" rel="stylesheet">
+    <link href="{{asset('front/css/owl.carousel.css')}}" rel="stylesheet">
+    <link href="{{asset('front/css/owl.theme.default.css')}}" rel="stylesheet">
     <link href="{{asset('front/css/responsive.css')}}" rel="stylesheet">
     <!--[if lt IE 9]>
     <script src="js/html5shiv.js"></script>
@@ -57,7 +59,7 @@
                 <div class="row">
                     <div class="col-md-4 clearfix">
                         <div class="logo pull-left">
-                            <a href="index.html"><img src="{{asset('front/images/home/logo.png')}}" alt="" /></a>
+                            <a href="{{URL::to('/')}}"><img src="{{asset('front/images/home/logo.png')}}" alt="" /></a>
                         </div>
                         <div class="btn-group pull-right clearfix">
                             <div class="btn-group">
@@ -88,9 +90,33 @@
                             <ul class="nav navbar-nav">
                                 <li><a href=""><i class="fa fa-user"></i> Account</a></li>
                                 <li><a href=""><i class="fa fa-star"></i> Wishlist</a></li>
-                                <li><a href="checkout.html"><i class="fa fa-crosshairs"></i> Checkout</a></li>
-                                <li><a href="cart.html"><i class="fa fa-shopping-cart"></i> Cart</a></li>
-                                <li><a href="login.html"><i class="fa fa-lock"></i> Login</a></li>
+                                <?php $customer_id = Session::get('customer_id') ?>
+                                <?php $shipping_id = Session::get('shipping_id') ?>
+                                <?php print_r($customer_id) ?>
+                                <?php print_r($shipping_id) ?>
+                                <?php if($customer_id != NULL && $shipping_id == NULL){ ?>
+
+                                <li><a href="{{URL::to('/checkout')}}"><i class="fa fa-crosshairs"></i> Checkout</a></li>
+
+                                <?php } if($customer_id != NULL && $shipping_id != NULL){ ?> 
+
+                                <li><a href="{{URL::to('/payment')}}"><i class="fa fa-crosshairs"></i> Payment</a></li>
+
+                                <?php } else{ ?>
+                                <li><a href="{{URL::to('/customer_login_check')}}"><i class="fa fa-crosshairs"></i> Checkout</a></li>
+                                <?php } ?>
+
+                                <li><a href="{{URL::to('/show_cart')}}"><i class="fa fa-shopping-cart"></i> Cart</a></li>
+                                
+                                
+                                <?php if($customer_id != NULL){ ?>
+
+                                <li><a href="{{URL::to('/customer_logout')}}"><i class="fa fa-lock"></i> Logout</a></li>
+                                <?php } else{ ?> 
+
+                                <li><a href="{{URL::to('/customer_login_check')}}"><i class="fa fa-lock"></i> Login</a></li>
+                                <?php } ?>
+
                             </ul>
                         </div>
                     </div>
@@ -112,14 +138,13 @@
                         </div>
                         <div class="mainmenu pull-left">
                             <ul class="nav navbar-nav collapse navbar-collapse">
-                                <li><a href="index.html" class="active">Home</a></li>
+                                <li><a href="{{URL::to('/')}}" class="active">Home</a></li>
                                 <li class="dropdown"><a href="#">Shop<i class="fa fa-angle-down"></i></a>
                                     <ul role="menu" class="sub-menu">
                                         <li><a href="shop.html">Products</a></li>
                                         <li><a href="product-details.html">Product Details</a></li> 
-                                        <li><a href="checkout.html">Checkout</a></li> 
-                                        <li><a href="cart.html">Cart</a></li> 
-                                        <li><a href="login.html">Login</a></li> 
+                                        <li><a href="{{URL::to('/customer_login_check')}}">Checkout</a></li> 
+                                        <li><a href="{{URL::to('/show_cart')}}">Cart</a></li> 
                                     </ul>
                                 </li> 
                                 <li class="dropdown"><a href="#">Blog<i class="fa fa-angle-down"></i></a>
@@ -141,137 +166,17 @@
                 </div>
             </div>
         </div><!--/header-bottom-->
-    </header><!--/header-->
+    </header4><!--/header-->
     
-    <section id="slider"><!--slider-->
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-12">
-                    <div id="slider-carousel" class="carousel slide" data-ride="carousel">
-                        <ol class="carousel-indicators">
-                            <li data-target="#slider-carousel" data-slide-to="0" class="active"></li>
-                            <li data-target="#slider-carousel" data-slide-to="1"></li>
-                            <li data-target="#slider-carousel" data-slide-to="2"></li>
-                        </ol>
-                        
-                        <div class="carousel-inner">
-                            <div class="item active">
-                                <div class="col-sm-6">
-                                    <h1><span>E</span>-SHOPPER</h1>
-                                    <h2>Free E-Commerce Template</h2>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
-                                    <button type="button" class="btn btn-default get">Get it now</button>
-                                </div>
-                                <div class="col-sm-6">
-                                    <img src="{{asset('front/images/home/girl1.jpg')}}" class="girl img-responsive" alt="" />
-                                    <img src="{{asset('front/images/home/pricing.png')}}"  class="pricing" alt="" />
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="col-sm-6">
-                                    <h1><span>E</span>-SHOPPER</h1>
-                                    <h2>100% Responsive Design</h2>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
-                                    <button type="button" class="btn btn-default get">Get it now</button>
-                                </div>
-                                <div class="col-sm-6">
-                                    <img src="{{asset('front/images/home/girl2.jpg')}}" class="girl img-responsive" alt="" />
-                                    <img src="{{asset('front/images/home/pricing.png')}}"  class="pricing" alt="" />
-                                </div>
-                            </div>
-                            
-                            <div class="item">
-                                <div class="col-sm-6">
-                                    <h1><span>E</span>-SHOPPER</h1>
-                                    <h2>Free Ecommerce Template</h2>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
-                                    <button type="button" class="btn btn-default get">Get it now</button>
-                                </div>
-                                <div class="col-sm-6">
-                                    <img src="{{asset('front/images/home/girl3.jpg')}}" class="girl img-responsive" alt="" />
-                                    <img src="{{asset('front/images/home/pricing.png')}}" class="pricing" alt="" />
-                                </div>
-                            </div>
-                            
-                        </div>
-                        
-                        <a href="#slider-carousel" class="left control-carousel hidden-xs" data-slide="prev">
-                            <i class="fa fa-angle-left"></i>
-                        </a>
-                        <a href="#slider-carousel" class="right control-carousel hidden-xs" data-slide="next">
-                            <i class="fa fa-angle-right"></i>
-                        </a>
-                    </div>
-                    
-                </div>
-            </div>
-        </div>
-    </section><!--/slider-->
+    
+   @yield('slider')
     
     <section>
         <div class="container">
             <div class="row">
-                <div class="col-sm-3">
-                    <div class="left-sidebar">
-                        <h2>Category</h2>
-                        <div class="panel-group category-products" id="accordian"><!--category-productsr-->
-                            <div class="panel panel-default">
-                                <?php 
-                                $all_published_category = DB::table('tbl_category')
-                                                        ->where('publication_status',1)
-                                                        ->get();
-                                foreach($all_published_category as $v_category){
-
-                                ?>
-                                <div class="panel-heading">
-                                    <h4 class="panel-title">
-                                        <a data-toggle="collapse" data-parent="#accordian" href="#sportswear">
-                                            <span class="badge pull-right"><i class="fa fa-plus"></i></span>
-                                            {{$v_category->category_name}}
-                                        </a>
-                                    </h4>
-                                </div>
-                                <?php } ?>
-                            </div>
-                        </div><!--/category-products-->
-                    
-                        <div class="brands_products"><!--brands_products-->
-                            <h2>Brands</h2>
-                            <div class="brands-name">
-                                <ul class="nav nav-pills nav-stacked">
-                                    <?php 
-                                $all_published_manufacture = DB::table('tbl_manufacture')
-                                                        ->where('publication_status',1)
-                                                        ->get();
-                                foreach($all_published_manufacture as $v_manufacture){
-
-                                ?>
-                                    <li><a href="#"> <span class="pull-right">(50)</span>{{$v_manufacture->manufacture_name}}</a></li>
-                                 <?php } ?>
-                                </ul>
-                            </div>
-                        </div><!--/brands_products-->
-                        
-                        <div class="price-range"><!--price-range-->
-                            <h2>Price Range</h2>
-                            <div class="well text-center">
-                                 <input type="text" class="span2" value="" data-slider-min="0" data-slider-max="600" data-slider-step="5" data-slider-value="[250,450]" id="sl2" ><br />
-                                 <b class="pull-left">$ 0</b> <b class="pull-right">$ 600</b>
-                            </div>
-                        </div><!--/price-range-->
-                        
-                        <div class="shipping text-center"><!--shipping-->
-                            <img src="{{asset('front/images/home/shipping.jpg')}}" alt="" />
-                        </div><!--/shipping-->
-                    
-                    </div>
-                </div>
+                    @yield('sidebar')
                 
-                <div class="col-sm-9 padding-right">
-                <div class="features_items"><!--features_items-->
                     @yield('content')                    
-                </div>
-            </div>
         </div>
     </section>
     
@@ -441,5 +346,43 @@
     <script src="{{asset('front/js/price-range.js')}}"></script>
     <script src="{{asset('front/js/jquery.prettyPhoto.js')}}"></script>
     <script src="{{asset('front/js/main.js')}}"></script>
+    <script src="{{asset('front/js/owl.carousel.js')}}"></script>
+    <script>
+        $('.owl-carousel').owlCarousel({
+            loop:true,
+            autoplay:true,
+            autoplayTimeout:5000,
+            nav:true,
+            dotsEach:true,
+            responsive:{
+                0:{
+                    items:1
+                },
+                600:{
+                    items:1
+                },
+                1000:{
+                    items:1
+                }
+            }
+        })
+    </script>
+    <script>
+        $(document).ready(function() {
+ 
+          var owl = $("#owl-slider1");
+         
+          owl.owlCarousel();
+         
+          // Custom Navigation Events
+          $(".next").click(function(){
+            owl.trigger('owl.next');
+          })
+          $(".prev").click(function(){
+            owl.trigger('owl.prev');
+          })
+         
+        });
+    </script>
 </body>
 </html>

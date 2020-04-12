@@ -13,7 +13,28 @@
 //frontend site
 Route::get('/', 'HomeController@index');
 
+//view products by category
+Route::get('/product_by_category/{category_id}', 'Homecontroller@show_product_by_category');
+Route::get('/product_by_manufacture/{category_id}', 'Homecontroller@show_product_by_manufacture');
+Route::get('/view_product/{product_id}','Homecontroller@product_details_by_id');
+Route::post('/add_to_cart','CartController@add_to_cart');
+Route::get('/show_cart','CartController@show_cart');
+Route::get('/delete_from_cart/{rowId}','CartController@delete_from_cart');
+Route::post('/update_cart/','CartController@update_cart');
 
+// checkout related routes are here
+
+Route::get('/customer_login_check','CheckoutController@customer_login_check');
+Route::post('/customer_registration','CheckoutController@customer_registration');
+Route::get('/checkout','CheckoutController@checkout');
+Route::get('/customer_logout','CheckoutController@customer_logout');
+Route::post('/save_shipping_info','CheckoutController@save_shipping_info');
+Route::post('/customer_login','CheckoutController@customer_login');
+
+//payment routes
+
+Route::get('/payment','CheckoutController@payment');
+Route::get('/confirmed','CheckoutController@confirmed');
 
 
 
@@ -59,3 +80,6 @@ Route::post('/update_product/{product_id}' , 'ProductController@update_product')
 Route::get('/add-slider','SliderController@index');
 Route::get('/all-slider','SliderController@all_slider');
 Route::post('/save-slider','SliderController@save_slider');
+Route::get('/inactive_slider/{slider_id}','SliderController@inactive_slider');
+Route::get('/active_slider/{slider_id}','SliderController@active_slider');
+Route::get('/delete_slider/{slider_id}','SliderController@delete_slider');

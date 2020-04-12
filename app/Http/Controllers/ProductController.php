@@ -128,7 +128,7 @@ class ProductController extends Controller
     	 		// exit();
     	 	}
     	 }
-    	 $data['product_image']='';
+    	 // $data['product_image']='';
     	 DB::table('tbl_products')
     	 			->where('product_id',$product_id)
     	 			->update($data);

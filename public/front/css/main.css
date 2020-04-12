@@ -1157,8 +1157,8 @@ h2.title {
 
 .view-product img {
     border: 1px solid #F7F7F0;
-    height: 380px;
-    width: 100%;
+    max-height: 380px;
+    max-width: 100%;
 }
 
 .view-product h3 {
@@ -1416,8 +1416,8 @@ h2.title {
 
 #form {
     display: block;
-    margin-bottom: 185px;
-    margin-top: 185px;
+    margin-bottom: 85px;
+    margin-top: 5px;
     overflow: hidden;
 }
 
@@ -1625,10 +1625,11 @@ h2.title {
     font-size: 16px;
     text-align: center;
     font-family: 'Roboto', sans-serif;
+    max-width: 50px;
 }
 
 .cart_delete {
-    display: block;
+    /*display: block;*/
     margin-right: -12px;
     overflow: hidden;
 }
@@ -2439,4 +2440,72 @@ textarea {
 .contact-info .social-networks ul li a:hover {
     color: #FE980F;
 }
+#owl-demo .items{
+  background: #3fbf79;
+  padding: 30px 0px;
+  margin: 10px;
+  color: #FFF;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  text-align: center;
+}
+.customNavigation{
+  text-align: center;
+}
 
+.customNavigation a{
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+.slideritems{
+    position: relative;
+}
+.overlaytext{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(255,255,255,0.2);
+    
+
+}
+.overlaytext h4 {
+    position: relative;
+    margin-bottom: 4px;
+    margin-left: 10%;
+    font-size: 2em;
+    padding: 5px 10px;
+    margin-top: 15%;
+    background: #fff;
+    display: inline-block;
+}
+
+.overlaytext p{ 
+    position: relative;
+    margin-bottom: 4px;
+    margin-left: 10%;
+    font-size: 1.5em;
+    padding: 5px 10px;
+    
+    background: #fff;
+    display: inline-block;
+}
+
+#owl-slider1 .owl-item.active .slideritems h4{
+    -webkit-animation: fadeInDown 1200ms ease-in-out;
+  -moz-animation: fadeInDown 1200ms ease-in-out;
+  -ms-animation: fadeInDown 1200ms ease-in-out;
+  animation: fadeInDown 1200ms ease-in-out;  
+}
+#owl-slider1 .owl-item.active .slideritems p{
+    -webkit-animation: fadeInUp 1200ms ease-in-out;
+  -moz-animation: fadeInUp 1200ms ease-in-out;
+  -ms-animation: fadeInUp 1200ms ease-in-out;
+  animation: fadeInUp 1200ms ease-in-out;  
+}

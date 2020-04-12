@@ -57,8 +57,8 @@
 							 <div class="control-group">
 								<label class="control-label" for="selectError3">Product Category</label>
 								<div class="controls">
-								  <select id="selectError3" name="category_id">
-								  	<option>Select Category</option>
+								  <select id="selectError3" name="category_id" required>
+								  	<option value="">Select Category</option>
 									<?php 
                                 $all_published_category = DB::table('tbl_category')
                                                         ->where('publication_status',1)
@@ -75,8 +75,8 @@
 							   <div class="control-group">
 								<label class="control-label" for="selectError3">Manufacture Name</label>
 								<div class="controls">
-								  <select id="selectError3" name="manufacture_id">
-								  	<option>Select Manufacture</option>
+								  <select id="selectError3" name="manufacture_id" required>
+								  	<option value="">Select Manufacture</option>
 									<?php 
                                 $all_published_manufacture = DB::table('tbl_manufacture')
                                                         ->where('publication_status',1)
@@ -111,10 +111,11 @@
 							<div class="control-group">
 							  <label class="control-label" for="fileInput">Product Image</label>
 							  <div class="controls">
-							  	<!-- <img src="{{$product_info->product_image}}" alt="image" style="width:80px;height:80px;"> -->
+							  	<img src="{{URL::to($product_info->product_image)}}" alt="image" style="width:80px;height:80px;">
 								<input class="input-file uniform_on" name="product_image" id="fileInput" type="file">
 							  </div>
 							</div> 
+							
 							<div class="control-group hidden-phone">
 							  <label class="control-label" for="textarea2">product size</label>
 							  <div class="controls">
@@ -130,7 +131,7 @@
 							<div class="control-group hidden-phone">
 							  <label class="control-label" for="textarea2">Publication Status</label>
 							  <div class="controls">
-								<input type="checkbox" name="publication_status" value="1">
+								<input type="checkbox" name="publication_status" checked="" value="1">
 							  </div>
 							</div>
 							<div class="form-actions">

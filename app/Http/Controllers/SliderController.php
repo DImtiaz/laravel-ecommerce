@@ -15,8 +15,10 @@ class SliderController extends Controller
     	return view('admin.add_slider');
     }
 
-    public function save_slider(Request $request){
+    public function save_slider(Request $request){ 
     	$data=array();
+        $data['slider_text1'] = $request->slider_text1;
+        $data['slider_text2'] = $request->slider_text2;
     	$data['publication_status']=$request->publication_status;
     	$image=$request->file('slider_image');
 
@@ -51,6 +53,31 @@ class SliderController extends Controller
     	$manage_slider=view('admin.all_slider')
     					->with('all_slider',$all_slider);
     	return view('admin_layout')
-    			->with('admin.all_slider',$manage_slider)
+    			->with('admin.all_slider',$manage_slider);
+    }
+
+    public function inactive_slider($slider_id){
+    	DB::table('tbl_slider')
+    			->where('slider_id',$slider_id)
+    			->update(['publication_status'=>0]);
+    			Session::put('message','Slider Inactive Successfull');
+    			return Redirect::to('/all-slider');
+    }
+
+    public function active_slider($slider_id){
+    	DB::table('tbl_slider')
+    			->where('slider_id',$slider_id)
+    			->update(['publication_status'=>1]);
+    			Session::put('message','Slider Active Successfull');
+    			return Redirect::to('/all-slider');
+    }
+
+    public function delete_slider($slider_id){
+    	DB::table('tbl_slider')
+    		->where('slider_id',$slider_id)
+    		->delete();
+
+    		Session::put('message','Sliedr Deleted Successfully');
+    		return Redirect::to('/all-slider');
     }
 }

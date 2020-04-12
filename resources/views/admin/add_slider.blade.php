@@ -47,13 +47,24 @@
 						<form class="form-horizontal" method="post" action="{{url('/save-slider')}}" enctype="multipart/form-data">
 							{{ csrf_field() }}
 						  <fieldset>
-							
+							<div class="control-group">
+							  <label class="control-label" for="date01">Slider Text 1</label>
+							  <div class="controls">
+								<input type="text" class="input-xlarge" name="slider_text1" required="">
+							  </div>
+							</div>
+							<div class="control-group hidden-phone">
+							  <label class="control-label" for="textarea2">Slider Text 2 </label>
+							  <div class="controls">
+								<textarea class="" name="slider_text2" rows="3" required=""></textarea>
+							  </div>
+							</div>
 							
 							<div class="control-group">
 							  <label class="control-label" for="fileInput">Slider Image</label>
 							  <div class="controls">
-								<input class="input-file uniform_on" name="slider_image" id="fileInput" type="file">
-							  </div>
+								<input class="input-file uniform_on" name="slider_image" id="fileInput" type="file" required="">
+							  </div> 
 							</div> 
 							
 							<div class="control-group hidden-phone">
