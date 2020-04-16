@@ -65,6 +65,8 @@
 	</section> <!--/#cart_items-->
 	<a href="{{URL::to('/')}}">
 	<button class="btn btn-default cart">Continue Shopping</button></a>
+
+	
 	<section id="do_action">
 		<div class="">
 			<div class="heading">
@@ -80,8 +82,8 @@
 						<ul>
 							<li>Cart Sub Total <span>{{Cart::subtotal()}} Tk</span></li>
 							<li>Tax <span>{{Cart::tax()}}</span></li>
-							<li>Shipping Cost <span>Free</span></li>
-							<li>Total <span>{{Cart::total()}}</span></li>
+							<li>Shipping Cost <span>50.00 Tk</span></li>
+							<li>Total <span>{{Cart::total()}} Tk</span></li>
 						</ul>
 							<a class="btn btn-default update" href="">Update</a>
 							<?php $customer_id = Session::get('customer_id'); ?>

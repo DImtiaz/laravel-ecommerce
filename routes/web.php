@@ -37,6 +37,11 @@ Route::get('/payment','CheckoutController@payment');
 Route::get('/confirmed','CheckoutController@confirmed');
 
 
+//manage orders from admin panel
+Route::get('/manage_orders','OrderController@manage_orders');
+Route::get('/view_order/{order_id}','OrderController@view_order');
+
+
 
 //backend side
 Route::get('/logout', 'SuperAdminController@logout');

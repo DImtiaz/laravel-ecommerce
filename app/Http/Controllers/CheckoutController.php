@@ -90,6 +90,37 @@ class CheckoutController extends Controller
         $confirmed = DB::table('tbl_shipping')
                         ->where('shipping_id', $shipping_id)
                         ->update(['is_confirmed'=> 1]);
+        $pdata = array();
+        $pdata['payment_method']= 'Cash On Delivery';
+        $pdata['payment_status']= 'pending';
+        $payment_id = DB::table('tbl_payment')
+                        ->insertGetId($pdata);
+
+        $odata = array();
+        $odata['customer_id']=Session::get('customer_id');
+        $odata['shipping_id']=Session::get('shipping_id');
+        $odata['payment_id']= $payment_id;
+        $odata['order_total']= Cart::total();
+        $odata['order_status']='pending';
+        $order_id = DB::table('tbl_orders')
+                        ->insertGetId($odata);
+
+        $oddata = array();
+        $contents = Cart::content();
+
+        foreach($contents as $v_content){
+            $oddata['order_id'] =$order_id;
+            $oddata['product_id'] =$v_content->id;
+            $oddata['product_name'] =$v_content->name;
+            $oddata['product_price'] =$v_content->price;
+            $oddata['product_price'] =$v_content->price;
+            $oddata['product_sales_quantity'] =$v_content->qty;
+
+            DB::table('tbl_order_details')
+                    ->insert($oddata);
+        }
+
+
         $data = DB::table('tbl_shipping')
                     ->where('shipping_id', $shipping_id)
                     ->get();

@@ -13,9 +13,8 @@
 		<div class="total_area">
 			<ul>
 				<li>Sub Total <span>{{Cart::subtotal()}} Tk</span></li>
-				<li>Eco Tax <span>{{Cart::tax()}}</span></li>
-				<li>Shipping Cost <span>Free</span></li>
-				<li>Total <span>{{Cart::total()}}</span></li>
+				<li>Delivery Charge <span>50.00 Tk</span></li>
+				<li>Total <span><?php echo str_replace(",","",Cart::total()) + 50; ?> Tk</span></li>
 			</ul>
 				
 		</div>

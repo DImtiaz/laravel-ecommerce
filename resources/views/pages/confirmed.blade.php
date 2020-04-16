@@ -2,7 +2,7 @@
 @section('content')
 <div class="container text-center">
 		<div class="content-404">
-			<h1><b>Thanks!</b> Your Order Order Has Been Confirmed</h1>
+			<h1><b>Thanks!</b> Your Order Has Been Placed</h1>
 			<br><br>
 			<div class="row">
 				<div class="col-md-8">
@@ -44,7 +44,7 @@
 							<td>{{Cart::subtotal()}} Tk</td>
 							<td>{{Cart::tax()}} Tk</td>
 							<td>50 Tk</td>
-							<td>{{Cart::total() + 50}} Tk</td>
+							<td><?php echo str_replace(",","",Cart::total()) + 50; ?> Tk</td>
 						</tr>
 					</table>
 				</div>
@@ -59,7 +59,9 @@
 					@endforeach
 				</div>
 			</div>
+			<p>We will contact you shortly</p>
 			<h2><a href="{{URL::to('/customer_logout')}}">Continue To The Site</a></h2>
 		</div>
 	</div>  
+	
 @endsection

@@ -356,7 +356,10 @@
 								
 							</ul>	
 						</li>
-						<li><a href="chart.html"><i class="icon-list-alt"></i><span class="hidden-tablet"> Social links</span></a></li>
+						<li><a href="{{URL::to('/manage_orders')}}"><i class="icon-list-alt"></i><span class="hidden-tablet"> Manage Orders</span></a></li>
+
+						<li><a href="#"><i class="icon-list-alt"></i><span class="hidden-tablet"> Social links</span></a></li>
+
 						<li><a href="typography.html"><i class="icon-font"></i><span class="hidden-tablet"> Business Name</span></a></li>
 						<li><a href="gallery.html"><i class="icon-picture"></i><span class="hidden-tablet"> Delivery Man</span></a></li>
 						
