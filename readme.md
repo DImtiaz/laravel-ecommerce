@@ -1,3 +1,5 @@
+A Complete ecommerce system in laravel with admin panel. Built for small and medium business. Only cash on delivery option is developed as I do not purchased/own any API. 
+Created with <3 By Dewan Imtiaz Been Emran. 
 <p align="center"><img src="https://res.cloudinary.com/dtfbvvkyp/image/upload/v1566331377/laravel-logolockup-cmyk-red.svg" width="400"></p>
 
 <p align="center">
