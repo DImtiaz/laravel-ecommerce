@@ -20,6 +20,7 @@ class CreateTblOrders extends Migration
             $table->integer('payment_id');
             $table->string('order_total');
             $table->string('order_status');
+            $table->string('order_date');
             $table->timestamps();
         });
     }

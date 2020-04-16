@@ -336,7 +336,7 @@
 					<ul class="nav nav-tabs nav-stacked main-menu">
 						<li><a href="{{URL::to('/dashboard')}}"><i class="icon-bar-chart"></i><span class="hidden-tablet"> Dashboard</span></a></li>	
 						<li>
-							<a class="dropmenu" href="#"><i class="icon-folder-close-alt"></i><span class="hidden-tablet"> Products</span><span class="label label-important"> 3 </span></a>
+							<a class="dropmenu" href="#"><i class="icon-folder-close-alt"></i><span class="hidden-tablet"> Products</span><span class="float-right"> + </span></a>
 							<ul>
 								<li><a class="submenu" href="{{URL::to('/add-product')}}"><i class="icon-file-alt"></i><span class="hidden-tablet"> Add Product</span></a></li>
 								<li><a class="submenu" href="{{URL::to('/all-product')}}"><i class="icon-file-alt"></i><span class="hidden-tablet"> All Products</span></a></li>
@@ -356,9 +356,17 @@
 								
 							</ul>	
 						</li>
-						<li><a href="{{URL::to('/manage_orders')}}"><i class="icon-list-alt"></i><span class="hidden-tablet"> Manage Orders</span></a></li>
+						<li><a href="{{URL::to('/manage_orders')}}"><i class="icon-list-alt"></i><span class="hidden-tablet"> All Orders</span></a></li>
 
-						<li><a href="#"><i class="icon-list-alt"></i><span class="hidden-tablet"> Social links</span></a></li>
+						<li>
+							<a class="dropmenu" href="#"><i class="icon-folder-close-alt"></i><span class="hidden-tablet">Manage Orders</span><span class="float-right"> + </span></a>
+							<ul>
+								<li><a class="submenu" href="{{URL::to('/manage_pending_orders')}}"><i class="icon-file-alt"></i><span class="hidden-tablet">Pending Orders</span></a></li>
+								<li><a class="submenu" href="{{URL::to('/manage_processed_orders')}}"><i class="icon-file-alt"></i><span class="hidden-tablet"> Processed Orders</span></a></li>
+								<li><a class="submenu" href="{{URL::to('/manage_cancelled_orders')}}"><i class="icon-file-alt"></i><span class="hidden-tablet"> Cancelled Orders</span></a></li>
+								
+							</ul>	
+						</li>
 
 						<li><a href="typography.html"><i class="icon-font"></i><span class="hidden-tablet"> Business Name</span></a></li>
 						<li><a href="gallery.html"><i class="icon-picture"></i><span class="hidden-tablet"> Delivery Man</span></a></li>

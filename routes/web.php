@@ -39,7 +39,16 @@ Route::get('/confirmed','CheckoutController@confirmed');
 
 //manage orders from admin panel
 Route::get('/manage_orders','OrderController@manage_orders');
+Route::get('/manage_pending_orders','OrderController@manage_pending_orders');
+Route::get('/manage_processed_orders','OrderController@manage_processed_orders');
+Route::get('/manage_cancelled_orders','OrderController@manage_cancelled_orders');
+
 Route::get('/view_order/{order_id}','OrderController@view_order');
+
+
+//order processing routes
+Route::get('/approve_order/{order_id}','OrderController@approve_order');
+Route::get('/cancel_order/{order_id}','OrderController@cancel_order');
 
 
 
@@ -88,3 +97,5 @@ Route::post('/save-slider','SliderController@save_slider');
 Route::get('/inactive_slider/{slider_id}','SliderController@inactive_slider');
 Route::get('/active_slider/{slider_id}','SliderController@active_slider');
 Route::get('/delete_slider/{slider_id}','SliderController@delete_slider');
+
+

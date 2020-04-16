@@ -35,10 +35,8 @@ class CheckoutController extends Controller
     }
 
     public function save_shipping_info(Request $request){
-    	$data['email'] = $request->email;
-    	$data['full_name'] = $request->full_name;
-    	$data['address'] = $request->address;
-    	$data['phone_number'] = $request->phone_number;
+    	$data['address_line1'] = $request->address_line1;
+        $data['address_line2'] = $request->address_line2;
     	$data['city'] = $request->city;
 
     	$shipping_id = DB::table('tbl_shipping')
@@ -102,6 +100,7 @@ class CheckoutController extends Controller
         $odata['payment_id']= $payment_id;
         $odata['order_total']= Cart::total();
         $odata['order_status']='pending';
+        $odata['order_date'] = date('d-m-Y');
         $order_id = DB::table('tbl_orders')
                         ->insertGetId($odata);
 

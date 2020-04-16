@@ -19,14 +19,12 @@
 					
 					<div class="col-sm-12 clearfix">
 						<div class="bill-to">
-							<p>Bill To</p>
+							<p>Deliver To:</p>
 							<div class="form-one">
 								<form action="{{URL::to('save_shipping_info')}}" method="post">
 									{{csrf_field()}}
-									<input type="text" placeholder="Email*" name="email">
-									<input type="text" placeholder="Full Name *" name="full_name">
-									<input type="text" placeholder="Address *" name="address">
-									<input type="text" placeholder="Phone Number *" name="phone_number">
+									<input type="text" placeholder="Address line 1" name="address_line1" required="">
+									<input type="text" placeholder="Address line 2" name="address_line2" required="">
 									<input type="text" placeholder="City *" name="city">
 									<button type="submit" class="btn btn-default cart">Submit</button>
 								</form>

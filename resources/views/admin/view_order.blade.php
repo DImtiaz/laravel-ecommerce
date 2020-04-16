@@ -1,7 +1,7 @@
 @extends('admin_layout')
 @section('admin_content')
 <div class="row-fluid sortable">	
-				<div class="box span6">
+				<div class="box span12">
 					<div class="box-header">
 						<h2><i class="halflings-icon align-justify"></i><span class="break"></span>Customer Details</h2>
 						
@@ -11,6 +11,7 @@
 							  <thead>
 								  <tr>
 									  <th>Customer Name</th>
+									  <th>E-mail</th>
 									  <th>Contact Number</th>
 									                                           
 								  </tr>
@@ -18,7 +19,8 @@
 							  <tbody>
 								<tr>
 									<td>{{$order_by_id[0]->customer_full_name}}</td> 
-									<td>{{$order_by_id[0]->phone_number}}</td>                                 
+									<td>{{$order_by_id[0]->customer_email}}</td>
+									<td>{{$order_by_id[0]->customer_mobile_number}}</td>                                 
 								</tr>
 								<tr>
 									                                  
@@ -32,7 +34,10 @@
 					</div>
 				</div><!--/span-->
 				
-				<div class="box span6">
+			</div><!--/row-->
+
+			<div class="row-fluid sortable">
+				<div class="box span12">
 					<div class="box-header">
 						<h2><i class="halflings-icon align-justify"></i><span class="break"></span>Shipping Details</h2>
 						
@@ -41,16 +46,20 @@
 						<table class="table table-bordered">
 							  <thead>
 								  <tr>
-									  <th>Name</th>
-									  <th>Address</th>
-									  <th>Contact No.</th>
+								  	  <th>Order ID</th>
+								  	  <th>Order Date</th>
+									  <th>Address Line 1</th>
+									  <th>Address Line 2</th>
+									  <th>City</th>
 								  </tr>
 							  </thead>   
 							  <tbody>
 								<tr>
-									<td>{{$order_by_id[0]->full_name}}</td>
-									<td>{{$order_by_id[0]->address}}, {{$order_by_id[0]->city}}</td>
-									<td>{{$order_by_id[0]->phone_number}}</td>                                     
+									<td>{{$order_by_id[0]->order_id}}</td>
+									<td>{{$order_by_id[0]->order_date}}</td>
+									<td>{{$order_by_id[0]->address_line1}}</td>
+									<td>{{$order_by_id[0]->address_line2}}</td>
+									<td>{{$order_by_id[0]->city}}</td>                                     
 								</tr>
 								
 								
@@ -60,8 +69,7 @@
 						    
 					</div>
 				</div><!--/span-->
-			
-			</div><!--/row-->
+			</div>
 			
 			<div class="row-fluid sortable">	
 				<div class="box span12">
